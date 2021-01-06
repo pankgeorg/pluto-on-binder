@@ -4,10 +4,10 @@ ARG REPO_DIR=${HOME}
 ENV REPO_DIR ${REPO_DIR}
 WORKDIR ${REPO_DIR}
 
-COPY ./fasterbinder/warmer.jl warmer.jl
-COPY ./notebook.jl notebook.jl 
+COPY ./fasterbinder/warmer.sh warmer.sh
+COPY ./notebook.jl notebook.jl
 
-RUN /bin/bash warmer.jl
+RUN /bin/bash warmer.sh
 
 ENTRYPOINT ["/usr/local/bin/repo2docker-entrypoint"]
 
