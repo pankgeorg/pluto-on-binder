@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: checkout files in repo
-      uses: actions/checkout@main
+    - name:
+      uses: actions/checkout@v2
 
     - name: update jupyter dependencies with repo2docker
       uses: jupyterhub/repo2docker-action@master
@@ -17,8 +17,3 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.TOKEN_GHCR }}
         DOCKER_REGISTRY: "ghcr.io"
         ADDITIONAL_TAG: "latest"
-      env: # make sure username & password/token matches your registry
-        INPUT_DOCKER_USERNAME: ${{ github.repository_owner }}
-        INPUT_DOCKER_PASSWORD: ${{ secrets.TOKEN_GHCR }}
-        INPUT_DOCKER_REGISTRY: "ghcr.io"
-        INPUT_ADDITIONAL_TAG: "latest"
