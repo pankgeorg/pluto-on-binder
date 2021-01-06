@@ -2,7 +2,7 @@ name: aio
 
 on:
   push:
-    branches: main
+    branches: static-to-live-1
 
 jobs:
   multi-registries:
