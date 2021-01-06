@@ -18,7 +18,7 @@ jobs:
         DOCKER_REGISTRY: "ghcr.io"
         ADDITIONAL_TAG: "latest"
       env: # make sure username & password/token matches your registry
-        DOCKER_USERNAME: ${{ github.repository_owner }}
-        DOCKER_PASSWORD: ${{ secrets.TOKEN_GHCR }}
-        DOCKER_REGISTRY: "ghcr.io"
-        ADDITIONAL_TAG: "latest"
+        INPUT_DOCKER_USERNAME: ${{ github.repository_owner }}
+        INPUT_DOCKER_PASSWORD: ${{ secrets.TOKEN_GHCR }}
+        INPUT_DOCKER_REGISTRY: "ghcr.io"
+        INPUT_ADDITIONAL_TAG: "latest"
