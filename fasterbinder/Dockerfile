@@ -1,6 +1,9 @@
-FROM ghcr.io/pankgeorg/pluto-on-binder-faster:latest
+FROM ghcr.io/pankgeorg/pluto-on-binder:latest
 
-USER ${NB_USER}
+COPY fasterbinder/warmer.jl warmer.jl
+COPY notebook.jl notebook.jl 
+
+RUN /bin/bash warmer.jl
 
 ENTRYPOINT ["/usr/local/bin/repo2docker-entrypoint"]
 
