@@ -1,4 +1,4 @@
-FROM ghcr.io/pankgeorg/pluto-on-binder-faster:latest
+FROM ghcr.io/pankgeorg/pluto-on-binder:latest
 
 USER ${NB_USER}
 
