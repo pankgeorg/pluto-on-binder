@@ -16,5 +16,4 @@ jobs:
         DOCKER_USERNAME: ${{ github.repository_owner }}
         DOCKER_PASSWORD: ${{ secrets.TOKEN_GHCR }}
         DOCKER_REGISTRY: "ghcr.io"
-        IMAGE_NAME: "pluto-on-binder"
         ADDITIONAL_TAG: "latest"
