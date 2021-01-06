@@ -1,5 +1,9 @@
 FROM ghcr.io/pankgeorg/pluto-on-binder:latest
 
+ARG REPO_DIR=${HOME}
+ENV REPO_DIR ${REPO_DIR}
+WORKDIR ${REPO_DIR}
+
 COPY ./fasterbinder/warmer.jl warmer.jl
 COPY ./notebook.jl notebook.jl 
 
