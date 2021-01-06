@@ -9,13 +9,6 @@ jobs:
       - name: branch checkout
         uses: actions/checkout@v2
 
-      - name: update jupyter dependencies with repo2docker
-        uses: jupyterhub/repo2docker-action@master
-        with: # make sure username & password/token matches your registry
-          DOCKER_USERNAME: ${{ github.repository_owner }}
-          DOCKER_PASSWORD: ${{ secrets.TOKEN_GHCR }}
-          DOCKER_REGISTRY: "ghcr.io"
-          ADDITIONAL_TAG: "latest"
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -29,8 +22,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: ./fasterbinder
-          file: ./Dockerfile
+          context: .
+          file: ./fasterbinder/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
