@@ -1,7 +1,7 @@
 FROM ghcr.io/pankgeorg/pluto-on-binder:latest
 
-COPY fasterbinder/warmer.jl warmer.jl
-COPY notebook.jl notebook.jl 
+COPY ./fasterbinder/warmer.jl warmer.jl
+COPY ./notebook.jl notebook.jl 
 
 RUN /bin/bash warmer.jl
 
