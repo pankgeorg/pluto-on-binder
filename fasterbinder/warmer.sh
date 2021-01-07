@@ -34,5 +34,3 @@ end
 create_sysimage(pkgs, precompile_statements_file="precompile.jl"; replace_default=true)
 running[] = false
 __EOF__
-
-ls -lha notebook_sysimage.so
