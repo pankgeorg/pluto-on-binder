@@ -7,7 +7,6 @@ free
 echo "== warmup start =="
 # ! means that it is allowed to fail
 ! julia -e "import Pkg; Pkg.activate(\".\"); Pkg.instantiate(); Pkg.API.precompile();"
-! julia -e "import Pkg; Pkg.activate(\"pluto\"); Pkg.instantiate(); Pkg.API.precompile();"
 ! julia --project=$(pwd) --trace-compile="precompile.jl" notebook.jl
 echo "== warmup done =="
 ! wc -l precompile.jl
