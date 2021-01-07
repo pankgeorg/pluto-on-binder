@@ -1,4 +1,4 @@
-FROM ghcr.io/pankgeorg/pluto-on-binder:latest
+FROM ghcr.io/pankgeorg/pluto-on-binder@sha256:35ddd12892d6af51a4ed876b1e13f7635f5eeac13c73bba0c7f307aa9bbb801d
 
 ARG REPO_DIR=${HOME}
 ENV REPO_DIR ${REPO_DIR}

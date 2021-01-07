@@ -18,7 +18,7 @@ free
 julia <<__EOF__
 import Pkg
 Pkg.activate(mktempdir())
-Pkg.add(Pkg.PackageSpec(name="PackageCompiler", version="1.2.4"))
+Pkg.add(Pkg.PackageSpec(name="PackageCompiler"))
 using PackageCompiler
 Pkg.activate(".")
 proj = Pkg.API.project();
@@ -31,7 +31,7 @@ running = Ref(true)
     try rm(download("https://julialang.org/")) catch end
     sleep(10)
 end
-create_sysimage(pkgs, precompile_statements_file="precompile.jl"; sysimage_path="notebook_sysimage.so")
+create_sysimage(pkgs, precompile_statements_file="precompile.jl"; sysimage_path="notebook_sysimage.so", cpu_target="x86_64")
 running[] = false
 __EOF__
 
