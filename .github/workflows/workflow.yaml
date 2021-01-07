@@ -22,8 +22,8 @@ jobs:
           ref: binder-consumer
       - name: Create Updated Dockerfile
         run: |
-          echo FROM ghcr${{ github.repository_owner}}/pluto-on-binder@sha256:${{ github.event.push.head.sha }} > binder/Dockerfile
-          echo FROM ghcr${{ github.repository_owner}}/pluto-on-binder@sha256:${{ github.event.push.head.sha }}
+          echo FROM ghcr.io${{ github.repository_owner}}/pluto-on-binder@sha256:${{ GITHUB_SHA }} > binder/Dockerfile
+          echo FROM ghcr.io${{ github.repository_owner}}/pluto-on-binder@sha256:${{ GITHUB_SHA }}
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
