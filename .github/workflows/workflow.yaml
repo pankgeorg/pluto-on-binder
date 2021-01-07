@@ -9,12 +9,12 @@ jobs:
       - name: branch checkout
         uses: actions/checkout@v2
 
-      - uses: jupyterhub/repo2docker-action@master
-        with: # make sure username & password/token matches your registry
-          DOCKER_USERNAME: ${{ github.repository_owner }}
-          DOCKER_PASSWORD: ${{ secrets.TOKEN_GHCR }}
-          DOCKER_REGISTRY: "ghcr.io"
-          ADDITIONAL_TAG: "latest"
+      # - uses: jupyterhub/repo2docker-action@master
+      #   with: # make sure username & password/token matches your registry
+      #     DOCKER_USERNAME: ${{ github.repository_owner }}
+      #     DOCKER_PASSWORD: ${{ secrets.TOKEN_GHCR }}
+      #     DOCKER_REGISTRY: "ghcr.io"
+      #     ADDITIONAL_TAG: "latest"
 
       - name: checkout dockerimage
         uses: actions/checkout@v2
@@ -22,7 +22,8 @@ jobs:
           ref: binder-consumer
       - name: Create Updated Dockerfile
         run: |
-          echo FROM ${{ steps.repo2docker-action.outputs.IMAGE_SHA_NAME }} > binder/Dockerfile
+          echo FROM ghcr${{ github.repository_owner}}/pluto-on-binder@sha256:${{ github.event.push.head.sha }} > binder/Dockerfile
+          echo FROM ghcr${{ github.repository_owner}}/pluto-on-binder@sha256:${{ github.event.push.head.sha }}
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
