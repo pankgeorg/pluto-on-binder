@@ -9,12 +9,12 @@ jobs:
       - name: branch checkout
         uses: actions/checkout@v2
 
-      # - uses: jupyterhub/repo2docker-action@master
-      #   with: # make sure username & password/token matches your registry
-      #     DOCKER_USERNAME: ${{ github.repository_owner }}
-      #     DOCKER_PASSWORD: ${{ secrets.TOKEN_GHCR }}
-      #     DOCKER_REGISTRY: "ghcr.io"
-      #     ADDITIONAL_TAG: "latest"
+      - uses: jupyterhub/repo2docker-action@master
+        with: # make sure username & password/token matches your registry
+          DOCKER_USERNAME: ${{ github.repository_owner }}
+          DOCKER_PASSWORD: ${{ secrets.TOKEN_GHCR }}
+          DOCKER_REGISTRY: "ghcr.io"
+          ADDITIONAL_TAG: "latest"
 
       - name: checkout dockerimage
         uses: actions/checkout@v2
