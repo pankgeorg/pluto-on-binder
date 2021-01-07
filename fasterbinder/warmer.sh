@@ -31,7 +31,7 @@ running = Ref(true)
     try rm(download("https://julialang.org/")) catch end
     sleep(10)
 end
-create_sysimage(pkgs, precompile_statements_file="precompile.jl"; sysimage_path="notebook_sysimage.so")
+create_sysimage(pkgs, precompile_statements_file="precompile.jl"; replace_default=true)
 running[] = false
 __EOF__
 
