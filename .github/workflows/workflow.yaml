@@ -1,4 +1,4 @@
-name: pluto-notebook
+name: Basic Dockerfile
 
 on: push
 
@@ -9,19 +9,19 @@ jobs:
       - name: branch checkout
         uses: actions/checkout@v2
 
-      - name: update jupyter dependencies with repo2docker
-        uses: jupyterhub/repo2docker-action@master
+      - uses: jupyterhub/repo2docker-action@master
         with: # make sure username & password/token matches your registry
           DOCKER_USERNAME: ${{ github.repository_owner }}
           DOCKER_PASSWORD: ${{ secrets.TOKEN_GHCR }}
           DOCKER_REGISTRY: "ghcr.io"
           ADDITIONAL_TAG: "latest"
+
       - name: checkout dockerimage
         uses: actions/checkout@v2
         with:
           ref: binder-consumer
       - run:
-          echo FROM ${{ IMAGE_SHA_NAME }} >> binder/Dockerfile
+          echo FROM ${{ steps.repo2docker-action.outputs.IMAGE_SHA_NAME }} >> binder/Dockerfile
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
