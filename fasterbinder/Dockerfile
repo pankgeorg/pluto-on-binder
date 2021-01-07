@@ -9,6 +9,7 @@ ARG NB_UID
 ENV USER ${NB_USER}
 ENV HOME /home/${NB_USER}
 
+RUN pip install pandas matplotlib
 
 COPY ./notebook.jl notebook.jl
 COPY ./Manifest.toml Manifest.toml
