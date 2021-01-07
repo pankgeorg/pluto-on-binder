@@ -9,8 +9,14 @@ ARG NB_UID
 ENV USER ${NB_USER}
 ENV HOME /home/${NB_USER}
 
-COPY ./fasterbinder/warmer.sh warmer.sh
+
 COPY ./notebook.jl notebook.jl
+COPY ./Manifest.toml Manifest.toml
+COPY ./Project.toml Project.toml
+
+RUN chown -R ${NB_USER}:${NB_USER} ${HOME}
+
+COPY ./fasterbinder/warmer.sh warmer.sh
 
 RUN /bin/bash warmer.sh
 
