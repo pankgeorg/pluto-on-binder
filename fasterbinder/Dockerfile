@@ -11,6 +11,10 @@ ENV HOME /home/${NB_USER}
 
 RUN pip install pandas matplotlib
 
+# These should live somewhere else
+COPY ./plutoserver.py plutoserver.py
+COPY ./requirements.txt requirements.txt
+
 COPY ./notebook.jl notebook.jl
 COPY ./Manifest.toml Manifest.toml
 COPY ./Project.toml Project.toml
