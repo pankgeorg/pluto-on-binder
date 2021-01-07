@@ -1,1 +1,1 @@
-FROM ghcr.iopankgeorg/pluto-on-binder@sha256:2263144f43753f4d0baa53a00781a100659f4cb3
+FROM ghcr.io/pankgeorg/pluto-on-binder@sha256:428d0af124de97a8a44043775be04f16b9eb1925
