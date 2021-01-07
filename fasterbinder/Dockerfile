@@ -13,6 +13,7 @@ RUN pip install pandas matplotlib
 
 # These should live somewhere else
 COPY ./plutoserver.py plutoserver.py
+COPY ./setup.py setup.py
 COPY ./requirements.txt requirements.txt
 
 COPY ./notebook.jl notebook.jl
