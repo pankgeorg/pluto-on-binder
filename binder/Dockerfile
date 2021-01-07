@@ -1,4 +1,4 @@
-FROM ghcr.io/pankgeorg/pluto-on-binder-faster@sha256:65793089bf0670b3a8b7abc0a3dd335e17f959e1ad5bf6d4a4dd8ccdb45260e1
+FROM ghcr.io/pankgeorg/pluto-on-binder-faster@sha256:5d1f731698d299e1a7f0a9c6fe3b107c11eaa3b93c7841beed4d499023d2d7e7
 
 USER ${NB_USER}
 
