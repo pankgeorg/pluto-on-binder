@@ -1,1 +1,1 @@
-FROM  ghcr.io/pankgeorg/pluto-on-binder:33435bdfb871
+FROM ghcr.io/pankgeorg/pluto-on-binder:a1d7ebf2c946
