@@ -1,29 +1,32 @@
-# pluto-on-binder
+# pluto-on-binder / make a fast pluto sysimage for a notebook
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fonsp/pluto-on-binder/master?urlpath=pluto/open?url=https%3A%2F%2Fgist.githubusercontent.com%2Ffonsp%2Fd88b3adc8c958dce780cf7c4df8fa437%2Fraw%2F2a8a5bdc6d8b1bcb4462006f62ead2f52fec17bf%2Fturtles.jl)
+This repo includes some scripts to create a dockerfile with a precompiled sysimage
+for a notebook.
 
----
+## Basic usage
 
-#### First try:
+1. change `Manifest.toml` `Project.toml` and `notebook.jl` with yours
 
-to main menu:
 
-https://mybinder.org/v2/gh/fonsp/pluto-on-binder/master?urlpath=pluto
+## Advanced usage
 
-**time until you see the main menu**: 18sec
+1. change `Manifest.toml` `Project.toml` and `notebook.jl` with yours
+2. add extra steps in `postBuild`: that will be used when you build the image
+3. customize the `runpluto.sh` file to adjust how pluto will be invoked
 
----
+### When to change `postBuild`
 
-#### With more elaborate setup to allow passing a URL to Pluto: (we want this)
+- Use a different Pluto version
+- Add more packages for Pluto
+- Add sysimage creation for Pluto/change default sysimage
 
-https://mybinder.org/v2/gh/fonsp/pluto-on-binder/master?urlpath=pluto/open?url=https%3A%2F%2Fgist.githubusercontent.com%2Ffonsp%2Fd88b3adc8c958dce780cf7c4df8fa437%2Fraw%2F2a8a5bdc6d8b1bcb4462006f62ead2f52fec17bf%2Fturtles.jl
+### When to change `runpluto.sh`
 
-**time until you see _Welcome to binder_**: 39sec
+- When you want to change how julia is being invoked, e.g. 
+  - remove `--optimize=0` - not suggested for binder)
+  - add `-Jplutosysimage` for a sysimage you just created for Pluto
+- When you want to customize Pluto.run arguments
+  - Different notebook `sysimage` (default: `notebook_sysimage.so`)
 
-**time until you see the main menu**: 19sec
+Note: Host & Port are mostly managed by jupyter in this setting (we're starting this image from `jupyter/datascience-notebook`)
 
----
-
-(With packagecompiler):
-
-TODO
