@@ -1,3 +1,1 @@
 FROM ghcr.io/pankgeorg/pluto-notebook-on-binder@sha256:ffe53cf1097ca1d043278dca256420d29177df65da34c71a46220d328a6a96fb
-
-RUN julia --optimize=0 -Jnotebook_sysimage.so
