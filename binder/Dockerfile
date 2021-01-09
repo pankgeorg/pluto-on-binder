@@ -1,1 +1,1 @@
-FROM ghcr.io/pankgeorg/pluto-notebook-on-binder@sha256:86f9d0513929eece41d6ef1d8d8f2af53cf8f927260b8c6d18c27ff78273526a
+FROM ghcr.io/pankgeorg/pluto-notebook-on-binder@sha256:699a40d309426ca4fed68f3f9e62783dd698a5bf02bc6789480c2fc8a1e18ce9
