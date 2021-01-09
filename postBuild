@@ -3,12 +3,19 @@
 date
 
 free
+echo "== warmup start =="
+julia <<__EOF__
+import Pkg
+try Pkg.rm("Pluto") catch end
+Pkg.add(url="https://github.com/fonsp/Pluto.jl", rev="binder-static-to-live-1")
+Pkg.instantiate();
+Pkg.API.precompile();
+__EOF__
 
 echo "== warmup start =="
 julia <<__EOF__
 import Pkg
 Pkg.activate(".")
-Pkg.add(["Pluto", "PlutoUI", "Plots", "CSV", "DataFrames"])
 Pkg.instantiate();
 Pkg.API.precompile();
 __EOF__
@@ -36,7 +43,7 @@ running = Ref(true)
     try rm(download("https://julialang.org/")) catch end
     sleep(10)
 end
-create_sysimage(pkgs, precompile_statements_file="precompile.jl"; sysimage_path="notebook_sysimage.so")
+create_sysimage(pkgs, precompile_statements_file="precompile.jl"; sysimage_path="notebook_sysimage.so", cpu_target="generic")
 running[] = false
 __EOF__
 
