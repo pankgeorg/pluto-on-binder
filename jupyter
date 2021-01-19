@@ -11,7 +11,7 @@ Options:
 command="
 import Pluto;
 Pluto.run(
-    host=\"${2}\",
+    host=\"${3}\",
     port=8888,
     launch_browser=false,
     require_secret_for_open_links=false,
