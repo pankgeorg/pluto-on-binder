@@ -19,7 +19,7 @@ WORKDIR ${NOTEBOOK_DIR}
 
 USER root
 RUN mv ${USER_HOME_DIR}/jupyter /opt/jupyter && \
-    ls -s /opt/jupyter /usr/local/bin/jupyter && \
+    ln -s /opt/jupyter /usr/local/bin/jupyter && \
     chmod +x /opt/jupyter
 # CMD [ "julia", "/home/pluto/startup.jl" ]
 
